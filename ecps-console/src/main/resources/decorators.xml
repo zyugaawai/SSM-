@@ -1,0 +1,10 @@
+<decorators defaultdir="/ecps/console/decorators">
+    <excludes>
+        <pattern>*/top10.jsp</pattern>
+        
+    </excludes> 
+    <!-- 配置装饰文件 -->
+    <decorator name="default" page="default.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+</decorators>

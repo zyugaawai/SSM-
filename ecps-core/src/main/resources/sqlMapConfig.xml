@@ -1,0 +1,23 @@
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	
+	<mappers>
+		<mapper resource="cn/tf/ecps/mapper/EbBrandMapper.xml"/>
+		<mapper resource="cn/tf/ecps/mapper/EbItemMapper.xml"/>
+		<mapper resource="cn/tf/ecps/mapper/EbItemClobMapper.xml"/>
+		<mapper resource="cn/tf/ecps/mapper/EbFeatureMapper.xml"/>
+		<mapper resource="cn/tf/ecps/mapper/EbSkuMapper.xml"/>
+		<mapper resource="cn/tf/ecps/mapper/EbParaValueMapper.xml"/>
+		<mapper resource="cn/tf/ecps/mapper/EbSpecValueMapper.xml"/>
+		<mapper resource="cn/tf/ecps/mapper/EbConsoleLogMapper.xml"/>
+		<mapper resource="cn/tf/ecps/mapper/TsPtlUserMapper.xml"/>
+		<mapper resource="cn/tf/ecps/mapper/EbAreaMapper.xml"/> 
+		<mapper resource="cn/tf/ecps/mapper/EbShipAddrMapper.xml"/>
+		<mapper resource="cn/tf/ecps/mapper/EbOrderMapper.xml"/> 
+		<mapper resource="cn/tf/ecps/mapper/EbOrderDetailMapper.xml"/>
+	</mappers>
+
+</configuration>

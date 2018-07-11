@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.tf.ecps.mapper.EbFeatureMapper" >
+  <resultMap id="BaseResultMap" type="cn.tf.ecps.po.EbFeature" >
+    <id column="FEATURE_ID" property="featureId" jdbcType="DECIMAL" />
+    <result column="CAT_ID" property="catId" jdbcType="DECIMAL" />
+    <result column="FEATURE_NAME" property="featureName" jdbcType="VARCHAR" />
+    <result column="IS_SPEC" property="isSpec" jdbcType="DECIMAL" />
+    <result column="IS_SELECT" property="isSelect" jdbcType="DECIMAL" />
+    <result column="IS_SHOW" property="isShow" jdbcType="DECIMAL" />
+    <result column="SELECT_VALUES" property="selectValues" jdbcType="VARCHAR" />
+    <result column="INPUT_TYPE" property="inputType" jdbcType="DECIMAL" />
+    <result column="FEATURE_SORT" property="featureSort" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    FEATURE_ID, CAT_ID, FEATURE_NAME, IS_SPEC, IS_SELECT, IS_SHOW, SELECT_VALUES, INPUT_TYPE, 
+    FEATURE_SORT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from EB_FEATURE
+    where FEATURE_ID = #{featureId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from EB_FEATURE
+    where FEATURE_ID = #{featureId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.tf.ecps.po.EbFeature" >
+    insert into EB_FEATURE (FEATURE_ID, CAT_ID, FEATURE_NAME, 
+      IS_SPEC, IS_SELECT, IS_SHOW, 
+      SELECT_VALUES, INPUT_TYPE, FEATURE_SORT
+      )
+    values (#{featureId,jdbcType=DECIMAL}, #{catId,jdbcType=DECIMAL}, #{featureName,jdbcType=VARCHAR}, 
+      #{isSpec,jdbcType=DECIMAL}, #{isSelect,jdbcType=DECIMAL}, #{isShow,jdbcType=DECIMAL}, 
+      #{selectValues,jdbcType=VARCHAR}, #{inputType,jdbcType=DECIMAL}, #{featureSort,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tf.ecps.po.EbFeature" >
+    insert into EB_FEATURE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="featureId != null" >
+        FEATURE_ID,
+      </if>
+      <if test="catId != null" >
+        CAT_ID,
+      </if>
+      <if test="featureName != null" >
+        FEATURE_NAME,
+      </if>
+      <if test="isSpec != null" >
+        IS_SPEC,
+      </if>
+      <if test="isSelect != null" >
+        IS_SELECT,
+      </if>
+      <if test="isShow != null" >
+        IS_SHOW,
+      </if>
+      <if test="selectValues != null" >
+        SELECT_VALUES,
+      </if>
+      <if test="inputType != null" >
+        INPUT_TYPE,
+      </if>
+      <if test="featureSort != null" >
+        FEATURE_SORT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="featureId != null" >
+        #{featureId,jdbcType=DECIMAL},
+      </if>
+      <if test="catId != null" >
+        #{catId,jdbcType=DECIMAL},
+      </if>
+      <if test="featureName != null" >
+        #{featureName,jdbcType=VARCHAR},
+      </if>
+      <if test="isSpec != null" >
+        #{isSpec,jdbcType=DECIMAL},
+      </if>
+      <if test="isSelect != null" >
+        #{isSelect,jdbcType=DECIMAL},
+      </if>
+      <if test="isShow != null" >
+        #{isShow,jdbcType=DECIMAL},
+      </if>
+      <if test="selectValues != null" >
+        #{selectValues,jdbcType=VARCHAR},
+      </if>
+      <if test="inputType != null" >
+        #{inputType,jdbcType=DECIMAL},
+      </if>
+      <if test="featureSort != null" >
+        #{featureSort,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tf.ecps.po.EbFeature" >
+    update EB_FEATURE
+    <set >
+      <if test="catId != null" >
+        CAT_ID = #{catId,jdbcType=DECIMAL},
+      </if>
+      <if test="featureName != null" >
+        FEATURE_NAME = #{featureName,jdbcType=VARCHAR},
+      </if>
+      <if test="isSpec != null" >
+        IS_SPEC = #{isSpec,jdbcType=DECIMAL},
+      </if>
+      <if test="isSelect != null" >
+        IS_SELECT = #{isSelect,jdbcType=DECIMAL},
+      </if>
+      <if test="isShow != null" >
+        IS_SHOW = #{isShow,jdbcType=DECIMAL},
+      </if>
+      <if test="selectValues != null" >
+        SELECT_VALUES = #{selectValues,jdbcType=VARCHAR},
+      </if>
+      <if test="inputType != null" >
+        INPUT_TYPE = #{inputType,jdbcType=DECIMAL},
+      </if>
+      <if test="featureSort != null" >
+        FEATURE_SORT = #{featureSort,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where FEATURE_ID = #{featureId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tf.ecps.po.EbFeature" >
+    update EB_FEATURE
+    set CAT_ID = #{catId,jdbcType=DECIMAL},
+      FEATURE_NAME = #{featureName,jdbcType=VARCHAR},
+      IS_SPEC = #{isSpec,jdbcType=DECIMAL},
+      IS_SELECT = #{isSelect,jdbcType=DECIMAL},
+      IS_SHOW = #{isShow,jdbcType=DECIMAL},
+      SELECT_VALUES = #{selectValues,jdbcType=VARCHAR},
+      INPUT_TYPE = #{inputType,jdbcType=DECIMAL},
+      FEATURE_SORT = #{featureSort,jdbcType=DECIMAL}
+    where FEATURE_ID = #{featureId,jdbcType=DECIMAL}
+  </update>
+  
+  
+  <!-- 查询普通属性 -->
+  <select id="selectCommFeature" resultMap="BaseResultMap">
+  	select * from eb_feature t where t.is_spec = 0
+  </select>
+  <!-- 查询特殊属性 -->
+  <select id="selectSpecFeature" resultMap="BaseResultMap">
+  	select * from eb_feature t where t.is_spec = 1
+  </select>
+  <!-- 查询筛选条件 -->
+    <select id="selectIsSelectFeature" resultMap="BaseResultMap">
+  	select * from eb_feature t where t.is_select = 1
+  </select>
+  
+  
+   <!-- resultMap的关系是由实体类之间的关系确定的，实体类之间的关系是由表之间的关系确定 -->
+ <resultMap type="cn.tf.ecps.po.EbItem" id="selectItemDetailByIdRM" extends="BaseResultMap">
+  	<association property="itemClob" javaType="cn.tf.ecps.po.EbItemClob">
+  		<id column="ITEM_ID" jdbcType="DECIMAL" property="itemId" />
+  		<result column="ITEM_DESC" jdbcType="CLOB" property="itemDesc" />
+    	<result column="PACKING_LIST" jdbcType="CLOB" property="packingList" />
+  	</association>
+  	<collection property="paraList" ofType="cn.tf.ecps.po.EbParaValue">
+  		<id column="PARA_ID" jdbcType="DECIMAL" property="paraId" />
+    	<result column="ITEM_ID" jdbcType="DECIMAL" property="itemId" />
+   	 	<result column="FEATURE_ID" jdbcType="DECIMAL" property="featureId" />
+    	<result column="PARA_VALUE" jdbcType="VARCHAR" property="paraValue" />
+    	<result column="FEATURE_NAME" property="featureName"/>
+  	</collection>
+  	<collection property="skuList" ofType="cn.tf.ecps.po.EbSku">
+  		<id column="SKU_ID" jdbcType="DECIMAL" property="skuId" />
+	    <result column="ITEM_ID" jdbcType="DECIMAL" property="itemId" />
+	    <result column="SKU" jdbcType="VARCHAR" property="sku" />
+	    <result column="SKU_PRICE" jdbcType="DECIMAL" property="skuPrice" />
+	    <result column="SHOW_STATUS" jdbcType="DECIMAL" property="showStatus" />
+	    <result column="STOCK_INVENTORY" jdbcType="DECIMAL" property="stockInventory" />
+	    <result column="SKU_UPPER_LIMIT" jdbcType="DECIMAL" property="skuUpperLimit" />
+	    <result column="LOCATION" jdbcType="VARCHAR" property="location" />
+	    <result column="SKU_IMG" jdbcType="VARCHAR" property="skuImg" />
+	    <result column="SKU_SORT" jdbcType="DECIMAL" property="skuSort" />
+	    <result column="SKU_NAME" jdbcType="VARCHAR" property="skuName" />
+	    <result column="MARKET_PRICE" jdbcType="DECIMAL" property="marketPrice" />
+	    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+	    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+	    <result column="CREATE_USER_ID" jdbcType="DECIMAL" property="createUserId" />
+	    <result column="UPDATE_USER_ID" jdbcType="DECIMAL" property="updateUserId" />
+	    <result column="ORIGINAL_SKU_ID" jdbcType="DECIMAL" property="originalSkuId" />
+	    <result column="LAST_STATUS" jdbcType="DECIMAL" property="lastStatus" />
+	    <result column="MERCHANT_ID" jdbcType="DECIMAL" property="merchantId" />
+	    <result column="SKU_TYPE" jdbcType="DECIMAL" property="skuType" />
+	    <result column="SALES" jdbcType="DECIMAL" property="sales" />
+	    <result column="RES_CODE" jdbcType="VARCHAR" property="resCode" />
+	    <result column="PACK_ID" jdbcType="DECIMAL" property="packId" />
+	    <collection property="specList" ofType="cn.tf.ecps.po.EbSpecValue">
+	    	<id column="SPEC_ID" jdbcType="DECIMAL" property="specId" />
+		    <result column="SKU_ID" jdbcType="DECIMAL" property="skuId" />
+		    <result column="FEATURE_ID" jdbcType="DECIMAL" property="featureId" />
+		    <result column="SPEC_VALUE" jdbcType="VARCHAR" property="specValue" />
+	    </collection>
+  	</collection>
+  </resultMap>
+  
+  
+  <select id="selectCommFeatureByItemId" parameterType="long" resultMap="selectItemDetailByIdRM">
+  	select *
+  from eb_item       ei,
+       eb_para_value ep,
+       eb_feature    ef,
+       eb_sku        es,
+       eb_item_clob  ec,
+       eb_spec_value ev
+ where ei.item_id = ep.item_id
+   and ep.feature_id = ef.feature_id
+   and ei.item_id = es.item_id
+   and ei.item_id = ec.item_id
+   and es.sku_id = ev.sku_id(+)
+   and ei.item_id = #{itemId}
+  </select>
+  
+  
+</mapper>
